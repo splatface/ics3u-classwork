@@ -1,42 +1,26 @@
-# declare nums
-num1 = 3
-num2 = 4
-num3 = 5
-
-# sum/subtraction of nums:
-sum = num1 + num2 + num3
-subtraction = num1 - num2 - num3
-print("sum: ", sum)
-print("subtraction: ", subtraction)
-
-# takes average of nums:
-avg = sum/3
-print("average: ", avg)
-
-# percent of sum:
-percent = avg/sum * 100
-print("average is ", percent, f" % of sum")
-
-# flooring/rounding:
-floor = avg//sum * 100
-round = round(percent, 2)
-print("approximately: ", floor, f"% or: ", round, "%")
-
-# leftover?
-remainder = sum % avg
-print("Remainder when flipped: ", remainder)
-
-# random story time:
-
-# determine number of birds
-print(f"There are {20-10} birds flying in the sky.")
-
-# determine loners
-print(f"Of these birds, {20-10-4} are destined to be loners, flying high, yet flying alone.")
-
-# today's date
-print("As today is {}-{}-{}, wait no...".format(2100-76, 9, 13))
-
-# random conclusion
-print("New" + "Intel" + "Received" + "...") # no spaces intentional
-print("No birds, sky clear.")
+print("I have a class of 33 students.")
+print("There are 11 girls, so that means..")
+# calculates the number of boys: total students - # of girls
+print("there are " + str(33 - 11) + " boys.")
+print()
+# calculates the percent of girls: # of girls/total students
+print(f"That means {round(11 * 100/ 33, 2)} % are girls...")
+# calculates the percent of boys: # of boys/total students
+print(f"and {round((33 - 11) * 100/ 33, 2)} % are boys.")
+print()
+print("If we made groups of six...")
+# calculates how many groups of six there would be: total students/6
+print(f"There would be {33 // 6} groups of six.")
+# calculates the remaining people that would not be in a group of 6: 33 mod 6
+print(f"And then a smaller group of {33 % 6} people.")
+# prints 30 "-"s
+print("-" * 30)
+print("If we had 17 apples and 3 people...")
+# calculates the number of apples each person would get: total apples/total people
+print(f"Each person would get {17 // 3} whole apples.")
+# calculates the number of apples left over: 17 mod 3
+print("There would be " + str(17 % 3) + " apples remaining.")
+print()
+print("If we charged each person $2 each for their 5 apples..")
+# calculates how much each person would pay: number of apples per person * $5
+print(f"they would each pay ${2 * 5}.")
