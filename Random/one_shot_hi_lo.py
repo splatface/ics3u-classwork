@@ -1,6 +1,6 @@
 import random
 
-number = random.randint(1, 101)
+number = random.randint(1, 100)
 
 guess = float(input("I'm thinking of a number between 1-100. Try to guess it.\n"))
 
