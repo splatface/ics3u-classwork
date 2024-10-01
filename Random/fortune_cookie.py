@@ -1,6 +1,6 @@
 import random
 
-number = random.randint(1,7) #1-6
+number = random.randint(1,6)
 fortune_num = [random.randint(1,55) for i in range(6)]
 
 if number == 1:
