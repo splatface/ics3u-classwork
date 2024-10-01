@@ -1,7 +1,7 @@
 import random
 
-roll_1 = random.randint(1,7)
-roll_2 = random.randint(1, 7)
+roll_1 = random.randint(1,6)
+roll_2 = random.randint(1, 6)
 
 sum = roll_1 + roll_2
 print("HERE COMES THE DICE!")
