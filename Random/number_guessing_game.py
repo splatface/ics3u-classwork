@@ -2,7 +2,7 @@ import random
 
 print("I'm thinking of a number from 1 to 10.")
 
-number = random.randint(1, 11) # 1-10
+number = random.randint(1, 10)
 
 guess = float(input("Your guess: "))
 
