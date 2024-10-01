@@ -4,7 +4,7 @@ print("You slide up to Fast Eddie's card table and plop down your cash.")
 print("He glances at you out of the corner of his eye and starts shuffling.")
 print("He lays down three cards.")
 
-ace = random.randint(1,4)
+ace = random.randint(1,3)
 
 print("## ## ##")
 print("## ## ##")
