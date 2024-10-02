@@ -1,6 +1,5 @@
 import random
 seed = random.seed(404) # after assigning it a seed value, the program outputs the same numbers (not random anymore), will give same output even if this is changed to a different seed value and changed back (stores it)
-print(random.random())
 # seeds can be used to save the information of an account (e.g. Minecraft)
 
 x = random.randrange(10)  # 0-9
