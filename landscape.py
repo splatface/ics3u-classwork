@@ -93,7 +93,7 @@ while running:
         moon_y = 0.0025*(moon_x-320)**2
 
     #moon colour settings (turns into sun)
-    if moon_x >= 670:
+    if moon_x >= 640 + moon_radius:
         if day == False:
             day = True
             moon_x = -30
