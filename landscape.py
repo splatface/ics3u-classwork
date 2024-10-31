@@ -21,6 +21,8 @@ moon_x = -30
 moon_y = 330
 last_time_moon = 0
 moon_colour = (255, 255, 255)
+moon_radius = 30
+radius_pause = 0
 
 #tree presets
 tree = [120, 90]
@@ -186,6 +188,15 @@ while running:
                 screen_colour[1] -= 0.45
             if screen_colour[2] > 110:
                 screen_colour[2] -= 1.0
+        
+    #changes moon radius
+    if L == True and current_time - radius_pause >= 200:
+        if moon_radius < 35: #will always just toggle (increase, decrease, increase, decrease, etc.)
+            moon_radius += 5
+        elif moon_radius >= 35:
+            moon_radius -= 5
+        
+        radius_pause = current_time
 
     #plus symbol
     if day == False or plus_y[-1] > 275 or R == True:
@@ -212,7 +223,7 @@ while running:
     #DRAWING:
 
     #moon/sun drawing
-    pygame.draw.circle(screen, (moon_colour), (moon_x, moon_y), 30)
+    pygame.draw.circle(screen, (moon_colour), (moon_x, moon_y), moon_radius)
 
     #ground
     pygame.draw.rect(screen, (82, 66, 57), (0, 300, 640, 180))
