@@ -53,8 +53,8 @@ while ghost_x >= ghost_head_x-40:
 #smoke presets
 smoke_y = [-25]
 smoke_last_time = 0
-smoke_x = [random.randint(400, 420)]
 time_between = random.randint(100, 400)
+smoke_x = [random.randint(410, 420)]
 
 #minus symbol
 minus_y = [0]
@@ -104,6 +104,9 @@ while running:
     
     if moon_x > 106 and moon_x < 533:
         midday = True
+    
+    if moon_x < 106 or moon_x > 533:
+        midday = False
 
     #makes the trees sway every 1s (1000ms)
     if current_time - last_time_trees >= 800:
@@ -133,13 +136,13 @@ while running:
     #ghost colour changes between day and night
     if (midday == True and day == True) or (day == True and current_time - ghost_last_time > 200) or L == True: #turns red
         ghost_colour = (224, 127, 110)
+        ghost_last_time = current_time
     elif midday == False and day == True: #turns white
         ghost_colour = (255, 255, 255)
     elif day == False: #turns white
         ghost_colour = (255, 255, 255)
     if R == True: #turns green
         ghost_colour = (50, 220, 100)
-        ghost_last_time = current_time
     
 
     #sets screen colour (gradient)
@@ -198,7 +201,13 @@ while running:
             minus_y.append(random.randint(310, 350))
             minus_last_time = current_time
 
-
+    #smoke generation
+    if day == True:
+        if current_time - smoke_last_time > time_between:
+            smoke_y.append(125) #list of all y-values of smoke
+            smoke_x.append(random.randint(410, 420)) #list of all x-values of smoke
+            smoke_last_time = current_time
+            time_between = random.randint(170, 750)
 
     #DRAWING:
 
@@ -215,20 +224,15 @@ while running:
     pygame.draw.circle(screen, (49, 82, 59), (tree[0]+340, tree[1]+90), 68)
     pygame.draw.circle(screen, (55, 87, 58), (tree[0]+430, tree[1]+115), 68)
 
-    #smoke generation
-    if day == True:
-        if current_time - smoke_last_time > time_between:
-            smoke_y.append(125)
-            smoke_x.append(random.randint(400, 420))
-            smoke_last_time = current_time
-            time_between = random.randint(170, 750)
-
-    if day == True or (day == False and smoke_y[-1]>0):
+    #checks if the smoke should be drawn or not
+    if day == True or (day == False and smoke_y[-1]>-25):
         for a in range(len(smoke_y)):   
             pygame.draw.ellipse(screen, (74, 81, 97), (smoke_x[a], smoke_y[a], 25, 25))
 
             smoke_y[a] -= 2
-            smoke_x[a] += 0.5
+
+            if smoke_y[a] < 110:
+                smoke_x[a] += 0.5
     
     #house
     while house_x >= 200:
