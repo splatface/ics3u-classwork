@@ -184,6 +184,20 @@ while running:
             if screen_colour[2] > 110:
                 screen_colour[2] -= 1.0
 
+    #plus symbol
+    if day == False or plus_y[-1] > 275 or R == True:
+        if current_time - plus_last_time > ghost_minus and (day == False or R == True):
+            plus_x.append(random.randint(ghost_head_x-60, ghost_head_x-30))
+            plus_y.append(random.randint(310, 350))
+            plus_last_time = current_time
+
+    #minus symbol
+    if day == True or minus_y[-1] > 275 or L == True:
+        if current_time - minus_last_time > ghost_minus and (day == True or L == True):
+            minus_x.append(random.randint(ghost_head_x-60, ghost_head_x-30))
+            minus_y.append(random.randint(310, 350))
+            minus_last_time = current_time
+
 
 
     #DRAWING:
@@ -265,13 +279,8 @@ while running:
     pygame.draw.circle(screen, (0, 0, 0), (ghost_head_x+17, 355), 10)
     pygame.draw.ellipse(screen, (0, 0, 0), (ghost_head_x-10, 360, 20, 30))
 
-    #minus symbol
-    if day == True or minus_y[-1] > 275 or L == True:
-        if current_time - minus_last_time > ghost_minus and (day == True or L == True):
-            minus_x.append(random.randint(ghost_head_x-60, ghost_head_x-30))
-            minus_y.append(random.randint(310, 350))
-            minus_last_time = current_time
 
+    #minus symbol
     for i in range(len(minus_x)):
         if minus_y[i] >= 250:
             pygame.draw.rect(screen, (255, 0, 0), (minus_x[i], minus_y[i], 15, 5))
@@ -283,12 +292,7 @@ while running:
         elif ghost_hit == True and (midday == False or day == False):
             minus_x[i] -= 3
 
-    if day == False or plus_y[-1] > 275 or R == True:
-        if current_time - plus_last_time > ghost_minus and (day == False or R == True):
-            plus_x.append(random.randint(ghost_head_x-60, ghost_head_x-30))
-            plus_y.append(random.randint(310, 350))
-            plus_last_time = current_time
-
+    #plus symbol
     for i in range(len(plus_x)):
         if plus_y[i] >= 250:
             pygame.draw.rect(screen, (0, 255, 0), (plus_x[i], plus_y[i], 15, 5))
@@ -302,7 +306,6 @@ while running:
         elif ghost_hit == True:
             if (day == True and midday == False) or day == False:
                 plus_x[i] -= 3
-
 
     #shows screen and sets framerate/refresh rate
     pygame.display.flip()
