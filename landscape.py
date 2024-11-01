@@ -226,7 +226,7 @@ while running:
     pygame.draw.circle(screen, (moon_colour), (moon_x, moon_y), moon_radius)
 
     #ground
-    pygame.draw.rect(screen, (82, 66, 57), (0, 300, 640, 180))
+    pygame.draw.rect(screen, (82, 66, 57), (0, 300, WIDTH, 180))
 
     #tree #1 (in front of right house)
     pygame.draw.rect(screen, (18, 31, 41), (485, 100, 30, 200))
